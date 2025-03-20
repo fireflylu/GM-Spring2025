@@ -41,7 +41,7 @@ The difference ("non-smoothness") of the two vectors across the edge  `(f,g)` ca
 <br/>
 ![](https://latex.codecogs.com/svg.latex?E_{fg}(u_f,u_g)=\|u_f\overline{e_f}-u_g\overline{&space;e_g}\|^2)<br/>
  <!-- $E_{fg}(u_f, u_g) = \| u_f \overline{e_f} - u_g \overline{ e_g}\|^2$ -->
-By recalling that `||z||^2 = z z.conjugate()` is a complex number `z`'s squared magnitude, 
+By recalling that `||z||^2 = z z.conjugate()` is a complex number `z`'s squared magnitude,
 this is a quadratic form on the complex variables `uf`, `ug` and can be manipulated into the form
 <br/>
 ![](https://latex.codecogs.com/svg.latex?E_{fg}(u_f,u_g)=\begin{bmatrix}\overline{u_f}&\overline{u_g}\end{bmatrix}Q_{fg}\begin{bmatrix}u_f&u_g\end{bmatrix}^T)<br/>
@@ -155,7 +155,7 @@ Required output for this section:
  * Plots of the Poisson reconstruction error.
  * An print of the reconstructed scalar function (#V x 1 vector one vertex value per row) for the mesh `irr4-cyl2.off` and the input constraints in `irr4-cyl2.constraints`.
 
-## 3. Harmonic and LSCM Parameterizations [5pt]
+## 3. Harmonic and LSCM Parameterizations - Optional [5pt]
 
 For this task, you will experiment with flattening a mesh with a boundary onto the plane using two parameterization methods: `harmonic` and `Least Squares Conformal` (LSCM) parameterization. In both cases, two scalar fields, `U` and `V`, are computed over the mesh. The per-vertex (`u`, `v`) scalars defining these coordinate functions determine the vertices' flattened positions in the plane (the flattening is linearly interpolated within each triangle).
 
@@ -192,7 +192,7 @@ Required output for this section:
 
 
 
-## 4. Editing a parameterization with vector fields [10pt]
+## 4. Editing a parameterization with vector fields - Optional [10pt]
 A parameterization consists of two scalar coordinate functions on the surface.
 As such, we can use vector fields to guide the parameterization: we can design a vector field and fit one of the coordinate functions' gradients to it.
 
