@@ -95,11 +95,11 @@ By the end of the course, the students will design, program, and analyze algorit
 [Assignment 3](Assignment3/README.md)</br>
 [Assignment 3 Slides](slides/53%20-%20Assignment%203.pdf)
 
-<!--[Assignment 4](Assignment4/README.md)</br>
-[Assignment 4 Slides](slides/A4%20-%20Assignment%204.pdf) -->
+[Assignment 4](Assignment4/README.md)</br>
+[Assignment 4 Slides](slides/54%20-%20Assignment%204.pdf)
 
 ## Project
 
 [Project Ideas](slides/56%20-%20Project%20Ideas.pdf)</br>
-<!--[Project](Project/README.md)</br>
-[Deformation Slides](slides/A5%20-%20Assignment%205.pdf) -->
+[Project](Project/README.md)</br>
+[Deformation Slides](slides/55%20-%20Assignment%205.pdf)
