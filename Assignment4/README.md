@@ -41,7 +41,7 @@ The difference ("non-smoothness") of the two vectors across the edge  `(f,g)` ca
 <br/>
 ![](https://latex.codecogs.com/svg.latex?E_{fg}(u_f,u_g)=\|u_f\overline{e_f}-u_g\overline{&space;e_g}\|^2)<br/>
  <!-- $E_{fg}(u_f, u_g) = \| u_f \overline{e_f} - u_g \overline{ e_g}\|^2$ -->
-By recalling that `||z||^2 = z z.conjugate()` is a complex number `z`'s squared magnitude, 
+By recalling that `||z||^2 = z z.conjugate()` is a complex number `z`'s squared magnitude,
 this is a quadratic form on the complex variables `uf`, `ug` and can be manipulated into the form
 <br/>
 ![](https://latex.codecogs.com/svg.latex?E_{fg}(u_f,u_g)=\begin{bmatrix}\overline{u_f}&\overline{u_g}\end{bmatrix}Q_{fg}\begin{bmatrix}u_f&u_g\end{bmatrix}^T)<br/>
@@ -102,24 +102,25 @@ Required output for this section:
 Your task is now to find a scalar function `S(x)` defined over the surface whose gradient fits a given vector field as closely as possible.
 The scalar field is defined by values on the mesh vertices that are linearly interpolated over each triangle's interior: for given vertex values `si`, the function `S(x)` inside a triangle `t` is computed as
 <br/>
-![](https://latex.codecogs.com/svg.latex?S_t(x)=\sum\limits_{\textrm{vertex}~i~\in~t}^3s_i\phi_i^t(x))<br/>
-<!-- $S_t(\x) =
-\sum\limits_{\textrm{vertex}~i~\in~t}^3 s_i \phi_i^t(\x)$,  -->
+```math
+S_t(x) =
+\sum\limits_{\textrm{vertex}~i~\in~t}^3 s_i \phi_i^t(x)
+```
 where `phi_i^t(x)` are the linear "hat" functions associated with each triangle vertex (i.e. `phi_i^t(x)` is linear and takes the value 1 at vertex i and 0 at all other vertices).
 Then the scalar function's (vector-valued) gradient is
 <br/>
-![](https://latex.codecogs.com/svg.latex?g_t=\nabla&space;S_t=\sum\limits_{\textrm{vertex}~i~\in~t}^3s_i\nabla\phi_i^t.)<br/>
-<!-- $\vec g_t = \nabla S_t = \sum\limits_{\textrm{vertex}~i~\in~t}^3 s_i \nabla\phi_i^t$. -->
+```math
+\vec g_t = \nabla S_t = \sum\limits_{\textrm{vertex}\,i\,\in\,t}^3 s_i \nabla\phi_i^t.
+```
 
 Since the "hat" functions are piecewise linear, their  gradients <!-- $\nabla\phi_i^t$--> are constant within each triangle, and so is `gt` (the full scalar function's gradient). Specifically, `gt` is a linear combination of the constant hat function gradients with the (unknown) values `si` as coefficients, meaning that we can write an expression of the form `g  = G s`, where `s` is a #V x 1 column vector holding each `si`, `g` is a column vector of size 3#F x 1 consisting of the vectors `gt` "flattened" and vertically stacked (i.e., using `gt.T.reshape(gt.size, 1)`), and `G` is the so-called "gradient matrix" of size 3#F x #V.
 
 Since there is no guarantee that our interpolated face-based field is actually the gradient of some function, we cannot attempt to integrate it directly.
 Instead, we will try to find `S(x)` by asking its gradient to approximate the vector field `u` in the least-squares sense:
 <br/>
-![](https://latex.codecogs.com/svg.latex?\min\quad\sum\limits_{\textrm{face}~t}A_t||g_t-u_t||^2,)<br/>
-<!-- \bdm{
-\min ~~\sum\limits_{\textrm{face}~t} A_t \|\vec g_t-\vec u_t\|^2,\\
-} -->
+```math
+\min\quad\sum\limits_{\textrm{face}~t}A_t \|\vec g_t-\vec u_t\|^2,
+```
 where `A_t` is triangle `t`'s area, `g_t` is the (unknown) function's gradient on the triangle, and `u_t` is the triangle's vector assigned by
 the guiding vector field.
 Using the linear relationship `g = Gs`, we can write this least-squares error as a (real) quadratic form:
@@ -155,7 +156,7 @@ Required output for this section:
  * Plots of the Poisson reconstruction error.
  * An print of the reconstructed scalar function (#V x 1 vector one vertex value per row) for the mesh `irr4-cyl2.off` and the input constraints in `irr4-cyl2.constraints`.
 
-## 3. Harmonic and LSCM Parameterizations [5pt]
+## 3. Harmonic and LSCM Parameterizations - Optional [5pt]
 
 For this task, you will experiment with flattening a mesh with a boundary onto the plane using two parameterization methods: `harmonic` and `Least Squares Conformal` (LSCM) parameterization. In both cases, two scalar fields, `U` and `V`, are computed over the mesh. The per-vertex (`u`, `v`) scalars defining these coordinate functions determine the vertices' flattened positions in the plane (the flattening is linearly interpolated within each triangle).
 
@@ -192,7 +193,7 @@ Required output for this section:
 
 
 
-## 4. Editing a parameterization with vector fields [10pt]
+## 4. Editing a parameterization with vector fields - Optional [10pt]
 A parameterization consists of two scalar coordinate functions on the surface.
 As such, we can use vector fields to guide the parameterization: we can design a vector field and fit one of the coordinate functions' gradients to it.
 
